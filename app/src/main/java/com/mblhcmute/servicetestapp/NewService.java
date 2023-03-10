@@ -37,7 +37,7 @@ public class NewService extends Service {
         // the audio on loop
         player.setLooping( true );
         // starting the process
-        player.setLooping( true );
+        player.start();
         // returns the status
         // of the program
         return START_STICKY;
