@@ -3,6 +3,9 @@ package com.mblhcmute.servicetestapp;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.IBinder;
 import android.provider.Settings;
 
@@ -24,14 +27,17 @@ public class NewService extends Service {
         // ringtone in android device
         player = MediaPlayer.create( this, Settings.System.DEFAULT_RINGTONE_URI );
 
+        //Đoạn code này để thay thế việc sử dụng MediaPlayer bằng RingtoneManager
+        /* Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+       Ringtone ringtone = RingtoneManager.getRingtone(this, defaultRingtoneUri);
+       ringtone.play();*/
+
         // providing the boolean
         // value as true to play
         // the audio on loop
         player.setLooping( true );
-
         // starting the process
-        player.start();
-
+        player.setLooping( true );
         // returns the status
         // of the program
         return START_STICKY;
